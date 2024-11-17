@@ -50,6 +50,34 @@ function createShoppingListPaths() {
 
 export const shoppingListPaths = createShoppingListPaths();
 
+
+// A list of all the ingredients the user has in their pantry and their quantities (or their cart)
+function createHasList() {
+    const storedHasList = JSON.parse(localStorage.getItem("hasList") || "[]");
+
+    const { subscribe, set, update } = writable(storedHasList);
+
+    subscribe(value => {
+        localStorage.setItem("hasList", JSON.stringify(value));
+    });
+
+    return {
+        subscribe,
+        add: (item) => update(prev => [...prev, item]),
+        remove: (item) => update(prev => {
+            let i = prev.indexOf(item);
+
+            prev.splice(i, 1);
+
+            return [...prev];
+        }),
+        reset: () => set([])
+    };
+}
+
+export const hasList = createHasList();
+
+
 // Preference for showing quantities next to ingredients, default is false
 const showQuantitiesNextToIngredientsValue = localStorage.getItem("showQuantitiesNextToIngredients") || "false";
 export const showQuantitiesNextToIngredients = writable(JSON.parse(showQuantitiesNextToIngredientsValue));
