@@ -1,0 +1,427 @@
+{
+	"cookware": [],
+	"data": { "type": "DefaultScaling" },
+	"external_image": null,
+	"filtered_metadata": [],
+	"grouped_ingredients": [
+		{
+			"index": 0,
+			"outcome": null,
+			"quantity": [
+				{ "unit": "g", "value": { "type": "number", "value": { "type": "regular", "value": 75 } } }
+			]
+		},
+		{
+			"index": 1,
+			"outcome": null,
+			"quantity": [
+				{ "unit": "g", "value": { "type": "number", "value": { "type": "regular", "value": 75 } } }
+			]
+		},
+		{
+			"index": 2,
+			"outcome": null,
+			"quantity": [
+				{ "unit": "ml", "value": { "type": "number", "value": { "type": "regular", "value": 75 } } }
+			]
+		},
+		{
+			"index": 3,
+			"outcome": null,
+			"quantity": [
+				{ "unit": "tsp", "value": { "type": "number", "value": { "type": "regular", "value": 2 } } }
+			]
+		},
+		{
+			"index": 4,
+			"outcome": null,
+			"quantity": [
+				{
+					"unit": "tbsp",
+					"value": { "type": "number", "value": { "type": "regular", "value": 1 } }
+				}
+			]
+		},
+		{
+			"index": 5,
+			"outcome": null,
+			"quantity": [
+				{ "unit": "g", "value": { "type": "number", "value": { "type": "regular", "value": 100 } } }
+			]
+		},
+		{
+			"index": 6,
+			"outcome": null,
+			"quantity": [
+				{ "unit": "g", "value": { "type": "number", "value": { "type": "regular", "value": 50 } } }
+			]
+		},
+		{
+			"index": 7,
+			"outcome": null,
+			"quantity": [
+				{
+					"unit": "items",
+					"value": { "type": "number", "value": { "type": "regular", "value": 3 } }
+				}
+			]
+		},
+		{
+			"index": 8,
+			"outcome": null,
+			"quantity": [
+				{ "unit": "g", "value": { "type": "number", "value": { "type": "regular", "value": 75 } } }
+			]
+		},
+		{
+			"index": 9,
+			"outcome": null,
+			"quantity": [
+				{
+					"unit": "tbsp",
+					"value": { "type": "number", "value": { "type": "regular", "value": 2 } }
+				}
+			]
+		},
+		{
+			"index": 10,
+			"outcome": null,
+			"quantity": [
+				{
+					"unit": "tbsp",
+					"value": { "type": "number", "value": { "type": "regular", "value": 1 } }
+				}
+			]
+		},
+		{
+			"index": 11,
+			"outcome": null,
+			"quantity": [
+				{
+					"unit": "tbsp",
+					"value": { "type": "number", "value": { "type": "regular", "value": 1 } }
+				}
+			]
+		},
+		{
+			"index": 12,
+			"outcome": null,
+			"quantity": [
+				{ "unit": "tsp", "value": { "type": "number", "value": { "type": "regular", "value": 1 } } }
+			]
+		},
+		{
+			"index": 13,
+			"outcome": null,
+			"quantity": [
+				{
+					"unit": "tbsp",
+					"value": { "type": "number", "value": { "type": "regular", "value": 3 } }
+				}
+			]
+		}
+	],
+	"ingredients": [
+		{
+			"alias": null,
+			"defined_in_step": true,
+			"modifiers": "",
+			"name": "strong white flour",
+			"note": null,
+			"quantity": {
+				"unit": "g",
+				"value": { "type": "number", "value": { "type": "regular", "value": 75 } }
+			},
+			"relation": { "reference_target": null, "referenced_from": [], "type": "definition" }
+		},
+		{
+			"alias": null,
+			"defined_in_step": true,
+			"modifiers": "",
+			"name": "plain flour",
+			"note": null,
+			"quantity": {
+				"unit": "g",
+				"value": { "type": "number", "value": { "type": "regular", "value": 75 } }
+			},
+			"relation": { "reference_target": null, "referenced_from": [], "type": "definition" }
+		},
+		{
+			"alias": null,
+			"defined_in_step": true,
+			"modifiers": "",
+			"name": "just-boiled water",
+			"note": null,
+			"quantity": {
+				"unit": "ml",
+				"value": { "type": "number", "value": { "type": "regular", "value": 75 } }
+			},
+			"relation": { "reference_target": null, "referenced_from": [], "type": "definition" }
+		},
+		{
+			"alias": null,
+			"defined_in_step": true,
+			"modifiers": "",
+			"name": "salt",
+			"note": null,
+			"quantity": {
+				"unit": "tsp",
+				"value": { "type": "number", "value": { "type": "regular", "value": 2 } }
+			},
+			"relation": { "reference_target": null, "referenced_from": [], "type": "definition" }
+		},
+		{
+			"alias": null,
+			"defined_in_step": true,
+			"modifiers": "",
+			"name": "olive oil",
+			"note": null,
+			"quantity": {
+				"unit": "tbsp",
+				"value": { "type": "number", "value": { "type": "regular", "value": 1 } }
+			},
+			"relation": { "reference_target": null, "referenced_from": [], "type": "definition" }
+		},
+		{
+			"alias": null,
+			"defined_in_step": true,
+			"modifiers": "",
+			"name": "Chinese cabbage",
+			"note": null,
+			"quantity": {
+				"unit": "g",
+				"value": { "type": "number", "value": { "type": "regular", "value": 100 } }
+			},
+			"relation": { "reference_target": null, "referenced_from": [], "type": "definition" }
+		},
+		{
+			"alias": null,
+			"defined_in_step": true,
+			"modifiers": "",
+			"name": "carrot",
+			"note": null,
+			"quantity": {
+				"unit": "g",
+				"value": { "type": "number", "value": { "type": "regular", "value": 50 } }
+			},
+			"relation": { "reference_target": null, "referenced_from": [], "type": "definition" }
+		},
+		{
+			"alias": null,
+			"defined_in_step": true,
+			"modifiers": "",
+			"name": "spring onions",
+			"note": null,
+			"quantity": {
+				"unit": "items",
+				"value": { "type": "number", "value": { "type": "regular", "value": 3 } }
+			},
+			"relation": { "reference_target": null, "referenced_from": [], "type": "definition" }
+		},
+		{
+			"alias": null,
+			"defined_in_step": true,
+			"modifiers": "",
+			"name": "strained kimchi",
+			"note": null,
+			"quantity": {
+				"unit": "g",
+				"value": { "type": "number", "value": { "type": "regular", "value": 75 } }
+			},
+			"relation": { "reference_target": null, "referenced_from": [], "type": "definition" }
+		},
+		{
+			"alias": null,
+			"defined_in_step": true,
+			"modifiers": "",
+			"name": "soy sauce",
+			"note": null,
+			"quantity": {
+				"unit": "tbsp",
+				"value": { "type": "number", "value": { "type": "regular", "value": 2 } }
+			},
+			"relation": { "reference_target": null, "referenced_from": [], "type": "definition" }
+		},
+		{
+			"alias": null,
+			"defined_in_step": true,
+			"modifiers": "",
+			"name": "rice wine vinegar",
+			"note": null,
+			"quantity": {
+				"unit": "tbsp",
+				"value": { "type": "number", "value": { "type": "regular", "value": 1 } }
+			},
+			"relation": { "reference_target": null, "referenced_from": [], "type": "definition" }
+		},
+		{
+			"alias": null,
+			"defined_in_step": true,
+			"modifiers": "",
+			"name": "chilli oil",
+			"note": null,
+			"quantity": {
+				"unit": "tbsp",
+				"value": { "type": "number", "value": { "type": "regular", "value": 1 } }
+			},
+			"relation": { "reference_target": null, "referenced_from": [], "type": "definition" }
+		},
+		{
+			"alias": null,
+			"defined_in_step": true,
+			"modifiers": "",
+			"name": "sesame oil",
+			"note": null,
+			"quantity": {
+				"unit": "tsp",
+				"value": { "type": "number", "value": { "type": "regular", "value": 1 } }
+			},
+			"relation": { "reference_target": null, "referenced_from": [], "type": "definition" }
+		},
+		{
+			"alias": null,
+			"defined_in_step": true,
+			"modifiers": "",
+			"name": "olive oil",
+			"note": null,
+			"quantity": {
+				"unit": "tbsp",
+				"value": { "type": "number", "value": { "type": "regular", "value": 3 } }
+			},
+			"relation": { "reference_target": null, "referenced_from": [], "type": "definition" }
+		}
+	],
+	"inline_quantities": [],
+	"metadata": {
+		"author": null,
+		"description": null,
+		"emoji": null,
+		"map": { "servings": "4" },
+		"servings": [4],
+		"source": null,
+		"tags": [],
+		"time": null
+	},
+	"name": "Potstickers",
+	"sections": [
+		{
+			"name": null,
+			"steps": [
+				{
+					"items": [
+						{
+							"type": "text",
+							"value": "Let's first make some dough. Set kettle with some water and prepare "
+						},
+						{ "index": 0, "type": "ingredient" },
+						{ "type": "text", "value": " and " },
+						{ "index": 1, "type": "ingredient" },
+						{ "type": "text", "value": "." }
+					],
+					"number": 1
+				},
+				{
+					"items": [
+						{ "type": "text", "value": "Put the flours into a bowl. Mix the " },
+						{ "index": 2, "type": "ingredient" },
+						{ "type": "text", "value": " with the " },
+						{ "index": 3, "type": "ingredient" },
+						{
+							"type": "text",
+							"value": ", then add this to the flour, mixing it in with a knife. It will seem very floury to start with but keep going and it will come together. Don’t be tempted to add more water. Cover with a damp cloth for 10 minutes, then remove and knead until the dough is smooth and elastic. Cover the dough again and leave it to stand somewhere warm for an hour."
+						}
+					],
+					"number": 2
+				},
+				{
+					"items": [
+						{
+							"type": "text",
+							"value": "Cut the dough into 2 equal pieces and dust your work surface with flour. Roll the dough out as thinly as you can. It will be resistant to start with, but you will eventually end up with a round about 35cm in diameter and with a thickness of less than 1mm."
+						}
+					],
+					"number": 3
+				},
+				{
+					"items": [
+						{
+							"type": "text",
+							"value": "Cut the dough into rounds using a 9cm cutter, then repeat with the other piece of dough. Knead the offcuts together and roll again. You should end up with at least 24 discs. Dust with flour in between each one if you want to stack them together."
+						}
+					],
+					"number": 4
+				},
+				{
+					"items": [
+						{ "type": "text", "value": "Heat the " },
+						{ "index": 4, "type": "ingredient" },
+						{
+							"type": "text",
+							"value": " in a frying pan and gently cook very finely shredded and chopped "
+						},
+						{ "index": 5, "type": "ingredient" },
+						{ "type": "text", "value": ", very finely grated " },
+						{ "index": 6, "type": "ingredient" },
+						{ "type": "text", "value": " and finely chopped " },
+						{ "index": 7, "type": "ingredient" },
+						{
+							"type": "text",
+							"value": " until they have wilted down. Remove from the heat and stir in very finely chopped "
+						},
+						{ "index": 8, "type": "ingredient" },
+						{
+							"type": "text",
+							"value": ". Taste for seasoning and add salt and pepper if you think it necessary. Allow to cool."
+						}
+					],
+					"number": 5
+				},
+				{
+					"items": [
+						{
+							"type": "text",
+							"value": "Assemble the dumplings by putting a teaspoon of filling in the centre of each wrapper. Wet around the sides – thoroughly, as they can sometimes crack – then pinch the edges together, pleating from the middle down each side to seal."
+						}
+					],
+					"number": 6
+				},
+				{
+					"items": [
+						{ "type": "text", "value": "Make the dipping sauce by mixing " },
+						{ "index": 9, "type": "ingredient" },
+						{ "type": "text", "value": ", " },
+						{ "index": 10, "type": "ingredient" },
+						{ "type": "text", "value": ", " },
+						{ "index": 11, "type": "ingredient" },
+						{ "type": "text", "value": " and " },
+						{ "index": 12, "type": "ingredient" },
+						{ "type": "text", "value": " together. Taste for seasoning and add salt if necessary." }
+					],
+					"number": 7
+				},
+				{
+					"items": [
+						{ "type": "text", "value": "To cook, heat " },
+						{ "index": 13, "type": "ingredient" },
+						{
+							"type": "text",
+							"value": " in a non-stick frying pan that has a lid – you need just enough oil to thinly cover the base. Add some of the dumplings, making sure they are well spread out."
+						}
+					],
+					"number": 8
+				},
+				{
+					"items": [
+						{
+							"type": "text",
+							"value": "Fry the dumplings over a medium heat until they are crisp and brown underneath, then add water – just enough to thinly cover the base of the pan. Cover the pan quickly, as it will spit when you add the water, and steam the dumplings for 5 minutes, until they are starting to look translucent and the water has evaporated. Uncover and cook for a further minute to make sure the underside is still crisp. Remove and keep warm while you cook the rest. Serve hot with the dipping sauce."
+						}
+					],
+					"number": 9
+				}
+			]
+		}
+	],
+	"timers": [],
+	"timers_seconds": []
+}

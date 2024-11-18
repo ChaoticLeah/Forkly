@@ -1,0 +1,33 @@
+{
+	"short_name": "recipe-pwa",
+	"name": "recipe-pwa",
+	"start_url": "/",
+	"icons": [
+		{
+			"src": "favicon.png",
+			"type": "image/png",
+			"sizes": "880x880",
+			"purpose": "any"
+		}
+	],
+	"background_color": "#3367D6",
+	"display": "standalone",
+	"scope": "/",
+	"theme_color": "#3367D6",
+	"shortcuts": [
+		{
+			"name": "Shopping List",
+			"short_name": "shopping",
+			"description": "View your shopping list",
+			"url": "/shopping-list",
+			"icons": [
+				{
+					"src": "favicon.png",
+					"type": "image/png",
+					"sizes": "880x880"
+				}
+			]
+		}
+	],
+	"description": "A simple app that displays recipes using the cooklang format"
+}

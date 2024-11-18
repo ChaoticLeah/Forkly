@@ -180,7 +180,7 @@ mod ui {
     }
 
     #[derive(RustEmbed)]
-    #[folder = "./ui/public/"]
+    #[folder = "./ui/build/"]
     struct Assets;
 
     async fn static_ui(uri: Uri) -> impl axum::response::IntoResponse {
