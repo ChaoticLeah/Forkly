@@ -29,7 +29,6 @@
 </script>
 
 {#await fetchRecipe(recipe)}
-	<!-- <p>Loading...</p> -->
 	<span class="loading loading-spinner loading-lg"></span>
 {:then recipeData}
 	<div class="recipe-card">
