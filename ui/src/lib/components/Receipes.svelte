@@ -1,10 +1,27 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { fetchRecipes } from '$lib/backend';
+	import { pageTitle } from '$lib/title.svelte';
+	import { onMount } from 'svelte';
 	import Recipe from './Recipe.svelte';
 	import RecipePage from './recipePage/RecipePage.svelte';
 
 	let dir = $derived($page.url.searchParams.get('dir')?.replace('Home', '') ?? '');
+	let currentRecipes: string[] = [];
+
+	$effect(setTitle);
+
+	function setTitle() {
+		// Check if the dir is a recipe or a folder
+		if (dir) {
+			const isRecipe = currentRecipes.includes(dir);
+			if (isRecipe) {
+				pageTitle.name = 'Recipe';
+			} else {
+				pageTitle.name = 'Home';
+			}
+		}
+	}
 
 	function removeDupes<T>(array: T[]): T[] {
 		return [...new Set(array)];
@@ -73,6 +90,11 @@
 		return [...subfolders, ...items];
 	}
 
+	function cacheRecipes(recipes: string[]) {
+		currentRecipes = recipes;
+		//setTitle();
+	}
+
 	function isRecipe(dir: string, recipes: string[]) {
 		for (let i = 0; i < recipes.length; i++) {
 			if (recipes[i] == dir) {
@@ -88,6 +110,7 @@
 		<!-- <p>Loading...</p> -->
 		<span class="loading loading-spinner loading-lg"></span>
 	{:then recipes}
+		{cacheRecipes(recipes)}
 		{#key $page.url.searchParams.get('dir')}
 			{#if isRecipe($page.url.searchParams.get('dir') ?? '', recipes)}
 				<RecipePage recipe={$page.url.searchParams.get('dir') ?? ''} />

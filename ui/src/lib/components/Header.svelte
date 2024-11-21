@@ -6,6 +6,7 @@
 	<a class="flex items-center" href="/">
 		<img src="favicon.png" alt="Icon" width="40" height="40" class="rounded-full" />
 		<h1 class="ml-4">Cooklang Client</h1>
+		<p class="opacity-50 text-xs pl-2">V0.0.1{process.env.NODE_ENV == 'development' ? ' - Dev Mode': ''}</p>
 	</a>
 	<nav>
 		<ul class="m-0 flex list-none p-0">

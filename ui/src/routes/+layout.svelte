@@ -1,12 +1,13 @@
 <script lang="ts">
+	import { pageTitle, title } from '$lib/title.svelte';
 	import '../app.css';
 	let { children } = $props();
 	
-	let title = `Recipe Manager`;
+	// let title = `Recipe Manager`;
 </script>
 
 <svelte:head>
-    <title>{title}</title>
+    <title>{title} - {pageTitle.name}</title>
 </svelte:head>
 
 {@render children()}

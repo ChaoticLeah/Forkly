@@ -1,4 +1,4 @@
-const DOMAIN = "http://127.0.0.1:9080/" //set to / for production
+const DOMAIN = "/"
 
 export const fetchRecipes = (async () => {
     const response = await fetch(`${DOMAIN}api/recipes`);
