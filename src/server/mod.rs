@@ -74,12 +74,13 @@ pub struct ServerArgs {
 #[tokio::main]
 pub async fn run(ctx: Context, args: ServerArgs) -> Result<()> {
 
+    let addr = SocketAddr::from(([0, 0, 0, 0], args.port));
 
-    let addr = if args.host {
-        SocketAddr::from(([0, 0, 0, 0], args.port))
-    } else {
-        SocketAddr::from(([127, 0, 0, 1], args.port))
-    };
+    // let addr = if args.host {
+    //     SocketAddr::from(([0, 0, 0, 0], args.port))
+    // } else {
+    //     SocketAddr::from(([127, 0, 0, 1], args.port))
+    // };
 
     info!("Listening on {addr}");
 

@@ -3,7 +3,7 @@
   
     // export let title: string
     // export let hasCloseButton: boolean = true
-    let { title, hasCloseButton } = $props()
+    let { title, hasCloseButton = true, canClose = true } = $props()
   
     let dialogElement: HTMLDialogElement
   
@@ -53,7 +53,9 @@
       const deltaY = currentY - startY
   
       if (deltaY > window.innerHeight / 4) {
-        close()
+        if (canClose) close()
+        //otherwise pop back to the original position
+        else dialogElement.style.transform = `translateY(200px)`
       } else {
         dialogElement.style.transform = ''
       }

@@ -19,7 +19,28 @@ export interface Cookware {
 
 export interface Timer {
 	name: string;
-	quantity: number;
+	quantity: {
+		unit: "hours" | "minutes" | "seconds",
+		value: {
+		  type: "number" | "range",
+		  value: {
+			type: "regular",
+			value: number,
+		  },
+		},
+	};
+}
+
+export function convertTimerToSeconds(timer: Timer) {
+	const { unit, value } = timer.quantity;
+	switch (unit) {
+		case "hours":
+			return value.value.value * 3600;
+		case "minutes":
+			return value.value.value * 60;
+		case "seconds":
+			return value.value.value;
+	}
 }
 
 export interface Step {

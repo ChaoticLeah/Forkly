@@ -36,3 +36,7 @@ export function isItemInStorage<T>(key: STORAGE_KEYS, value: T): boolean {
 export function clearStorage(key: STORAGE_KEYS) {
     storage.removeItem(key);
 }
+
+export function clearAllStorage() {
+    storage.clear();
+}
