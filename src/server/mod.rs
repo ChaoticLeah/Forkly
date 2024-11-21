@@ -313,6 +313,8 @@ async fn shopping_list(
         "INGREDIENTS": result
     });
 
+    //TODO use state to sort the ingredients
+
     Ok(Json(result))
 }
 
