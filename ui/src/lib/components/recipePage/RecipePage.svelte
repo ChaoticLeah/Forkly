@@ -35,8 +35,13 @@
 	<div class="recipe-card">
 		<div class="flex justify-between">
 			<h1 class="mb-2 text-3xl font-bold">{recipeData.name}</h1>
-			<button class="btn btn-circle md:!btn md:!w-fit btn-primary tooltip" data-tip={isInShoppingList ? 'Remove from shopping list': 'Add to shopping list'} onclick={toggleInShoppingList}
-				><Icon icon="fluent:task-list-square-add-24-regular" class="btn-primary"/>
+			<button class="btn btn-circle md:!btn md:!w-fit btn-primary md:tooltip" data-tip={isInShoppingList ? 'Remove from shopping list': 'Add to shopping list'} onclick={toggleInShoppingList}
+				>
+				{#if isInShoppingList}
+					<Icon icon="fluent:minimize-12-filled" class="btn-primary"/>
+				{:else}
+					<Icon icon="fluent:task-list-square-add-24-regular" class="btn-primary"/>
+				{/if}
 				<p class="hidden md:block btn-primary">{isInShoppingList ? 'Remove from shopping list': 'Add to shopping list'}</p>
 			</button>
 		</div>
