@@ -29,29 +29,27 @@
 
 		<h1 class="text-xl font-semibold">Shopping List</h1>
 
+		<span class="text-sm italic opacity-50">Showing ingredients for:</span>
+
+		<div class="flex gap-1 flex-wrap">
+			{#each ((read(STORAGE_KEYS.SHOPPING_LIST) || []) as string[]) as recipe}
+				<div class="badge badge-info gap-2">
+					<a href='/?dir={recipe}'>{recipe.split('/').pop()}</a>
+				</div>
+			{/each}
+		</div>
+
+		<div class="divider" />
+
 		{#await fetchShoppingList((read(STORAGE_KEYS.SHOPPING_LIST) || []) as string[])}
-			<div class="divider" />
 			<span class="loading loading-spinner loading-lg"></span>
 		{:then ingredients}
-			<span class="text-sm italic opacity-50">Showing ingredients for:</span>
-			<div class="flex gap-1 flex-wrap">
-				{#each ((read(STORAGE_KEYS.SHOPPING_LIST) || []) as string[]) as recipe}
-					<div class="badge badge-info gap-2">
-						<a href='/?dir={recipe}'>{recipe.split('/').pop()}</a>
-					</div>
-				{/each}
-			</div>
-
-			<div class="divider" />
-
 			{#if ingredients.INGREDIENTS.length === 0}
 				<p class="text-center">No items in the shopping list</p>
 			{:else}
 				<Ingredients recipe={{ ingredients: ingredients.INGREDIENTS }} />
 			{/if}
 		{:catch error}
-			<div class="divider" />
-
 			<p>{error.message}</p>
 		{/await}
 
