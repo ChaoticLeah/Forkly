@@ -4,6 +4,7 @@
 	import convert from 'convert';
 	import Modal from '../Modal.svelte';
 	import type { Unit } from 'convert';
+	import { getSettingWritable, SettingsKeys } from '$lib/settingsHelper';
 
 	let modal: Modal;
 
@@ -14,6 +15,9 @@
 	export function close() {
 		modal.close();
 	}
+
+    let truncateDecimals = getSettingWritable<boolean>(SettingsKeys.TRUNCATE_CONVERSION_DECIMALS);
+
 
 	let { currentConversion }: { currentConversion: Ingredient | null } = $props();
 
@@ -47,8 +51,14 @@
 		}
 	}
 
+    function truncateNumberIfEnabled(num: number) {
+        if ($truncateDecimals)
+            return Math.trunc(num * 100.0) / 100.0;
+        return num;
+    }
+
 	function convertTo(quantity: number, from: Unit, to: Unit) {
-		return convert(quantity, from).to(to).toString();
+        return (truncateNumberIfEnabled(convert(quantity, from).to(to))).toString(); 
 	}
 
 	$effect(() => {
@@ -56,11 +66,10 @@
 
 		const quantityValue = Number(formatQuantityValue(currentConversion.quantity.value));
 		if (!isNaN(quantityValue)) {
-			console.log(quantityValue, currentConversion.quantity.unit);
 			try {
-				bestConversion = convert(quantityValue, currentConversion.quantity.unit as Unit)
-					.to('best', isImperial ? 'imperial' : 'metric')
-					.toString();
+                const best = convert(quantityValue, currentConversion.quantity.unit as Unit)
+                .to('best', isImperial ? 'imperial' : 'metric')
+				bestConversion = (truncateNumberIfEnabled(best.quantity)).toString() + ' ' + best.unit;
 
 				const amountType = getAmountType(currentConversion.quantity.unit);
 
@@ -117,12 +126,6 @@
 			bestConversion = 'Cannot convert';
 			otherConversion = '';
 		}
-
-		// if (isImperial) {
-		// 	console.log('Imperial');
-		// } else {
-		// 	console.log('Metric');
-		// }
 	});
 
 	let isImperial = $state(false);

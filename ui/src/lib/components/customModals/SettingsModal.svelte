@@ -15,16 +15,21 @@
 
 	let keepAwake = getSettingWritable<boolean>(SettingsKeys.KEEP_AWAKE);
 
+	let truncateDecimals = getSettingWritable<boolean>(SettingsKeys.TRUNCATE_CONVERSION_DECIMALS);
 	// let $keepAwake = false;
 </script>
 
 <Modal title="Settings" bind:this={modal}>
-	<div class="form-control">
 		<label class="label cursor-pointer">
 			<span class="label-text">Keep the screen on</span>
 			<input type="checkbox" class="toggle" bind:checked={$keepAwake} on:change={()=>{
                 disableScreenSleep($keepAwake);
             }} />
 		</label>
-	</div>
+		<label class="label cursor-pointer">
+			<span class="label-text">Truncate conversion decimals</span>
+			<input type="checkbox" class="toggle" bind:checked={$truncateDecimals} on:change={()=>{
+				location.reload();
+            }}/>
+		</label>
 </Modal>

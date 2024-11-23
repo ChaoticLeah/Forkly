@@ -12,12 +12,14 @@ const settingsPrefix = 'setting-'
 
 export enum SettingsKeys {
     KEEP_AWAKE = 'keepAwake',
+    TRUNCATE_CONVERSION_DECIMALS = 'truncateConversionDecimals',
 }
 
 let defaultSettings: {
   [key: string]: unknown
 } = {
     [SettingsKeys.KEEP_AWAKE]: false,
+    [SettingsKeys.TRUNCATE_CONVERSION_DECIMALS]: true // Truncate decimals in conversion
 }
 
 export function initSettings() {
