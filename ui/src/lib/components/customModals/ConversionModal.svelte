@@ -132,8 +132,8 @@
 	let otherConversion: string = $state('');
 </script>
 
-{#if currentConversion}
-	<Modal title="Convert" bind:this={modal} hasCloseButton={true} canClose={true}>
+<Modal title="Convert" bind:this={modal} hasCloseButton={true} canClose={true}>
+	{#if currentConversion}
 		<label class="label cursor-pointer">
 			<span class="label-text">Imperial Units</span>
 			<input type="checkbox" class="toggle" bind:checked={isImperial} />
@@ -144,5 +144,5 @@
 		<h3 class="text-lg font-bold">{bestConversion}</h3>
 
 		<p class="whitespace-pre-line">{otherConversion}</p>
-	</Modal>
-{/if}
+	{/if}
+</Modal>
