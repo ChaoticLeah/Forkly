@@ -111,6 +111,21 @@ export function formatQuantity(quanity: Quantity) {
 	return result;
 }
 
+export function formatQuantityValue(value: DataType) {
+	switch (value.type) {
+		case 'number':
+			return formatNumber(value.value as NumberType)[0];
+		case 'range':
+			const [start, es] = formatNumber((value.value as RangeType).start);
+			const [end, ee] = formatNumber((value.value as RangeType).end);
+			return `${start}-${end}`;
+		case 'text':
+			return value.value as string;
+		default:
+			return '';
+	}
+}
+
 export function formatGroupedQuantity(quanities: { value: DataType; unit: string } | { value: DataType; unit: string }[]) {
 	if (!Array.isArray(quanities)) {
 		quanities = [quanities];

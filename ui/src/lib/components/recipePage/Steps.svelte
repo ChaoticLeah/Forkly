@@ -2,8 +2,8 @@
 	import type { Cookware, Ingredient, Step, Timer } from '$lib/cookType';
 	import { formatGroupedQuantity, formatQuantity, type Quantity } from '$lib/quantity';
 	import { onMount } from 'svelte';
-	import Test from '../Test.svelte';
 	import TimerModal from '../customModals/TimerModal.svelte';
+	import ConversionModal from '../customModals/ConversionModal.svelte';
 
 	let {
 		recipe
@@ -18,7 +18,11 @@
 
 	let timerModal: TimerModal;
 
+	let conversionModal: ConversionModal;
+
 	let currentTimer: Timer | null = $state(null);
+
+	let currentConversion: Ingredient | null = $state(null);
 
 	function formatText(item: Step['items'][0]) {
 		return item.value;
@@ -44,8 +48,19 @@
 
 	function popupTimer(data: Timer) {
 		currentTimer = data;
-		timerModal.open()
-		console.log(data);
+		if (timerModal)
+			timerModal.open()
+	}
+
+	function popupConversion(data: Ingredient) {
+		currentConversion = data;
+		if (conversionModal)
+			conversionModal.open()
+	}
+
+	function wrapInEventEmitterButton(text: string, event: string, detail: string, classes: string = '') {
+		return `<button class="!p-0 ${classes}" onclick="document.dispatchEvent(new CustomEvent('${event}', { detail: ${detail} }))">${text}</button>`;
+		
 	}
 
 	function parseStep(
@@ -60,7 +75,7 @@
 			.map((item: any) => {
 				switch (item.type) {
 					case 'ingredient':
-						return `${formatIngredient(ingredients[item.index])} <span class="opacity-50">(${formatQuantity(ingredients[item.index].quantity)})</span>`;
+						return wrapInEventEmitterButton(`${formatIngredient(ingredients[item.index])} <span class="opacity-50">(${formatQuantity(ingredients[item.index].quantity)})</span>`, 'amount', `{ index: ${item.index} }`, 'text-secondary');;
 					// return formatIngredient(ingredients[item.index]);
 					case 'cookware':
 						return formatCookware(cookware[item.index]);
@@ -70,7 +85,7 @@
 						// console.log(item.index);
 
 						// popupTimer(timers[item.index])
-						return `<button class="btn btn-link !p-0 timer" onclick="document.dispatchEvent(new CustomEvent('timer', { detail: { timer: ${item.index} } }))">${formatTimer(timers[item.index])}</button>`;
+						return wrapInEventEmitterButton(formatTimer(timers[item.index]), 'timer', `{ timer: ${item.index} }`, 'btn btn-link');
 					default:
 						throw new Error(`Unrecognizable item type ${item.type}`);
 				}
@@ -84,6 +99,15 @@
 			function (e) {
 				const timerId = (e as CustomEvent).detail.timer
 				popupTimer(recipe.timers[timerId])
+			},
+			false
+		);
+
+		document.addEventListener(
+			'amount',
+			function (e) {
+				const index = (e as CustomEvent).detail.index
+				popupConversion(recipe.ingredients[index])
 			},
 			false
 		);
@@ -106,3 +130,5 @@
 </ul>
 
 <TimerModal bind:this={timerModal} timer={currentTimer}></TimerModal>
+
+<ConversionModal bind:this={conversionModal} {currentConversion} ></ConversionModal>
