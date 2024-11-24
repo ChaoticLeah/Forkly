@@ -2,6 +2,7 @@ let storage = window.localStorage;
 
 export enum STORAGE_KEYS {
     SHOPPING_LIST = 'shoppingList',
+    HAS_LIST = 'hasList',
 }
 
 export function read<T>(key: STORAGE_KEYS): T | null {
@@ -9,7 +10,7 @@ export function read<T>(key: STORAGE_KEYS): T | null {
     return item ? JSON.parse(item) as T : null;
 }
 
-function write<T>(key: STORAGE_KEYS, value: T) {
+export function write<T>(key: STORAGE_KEYS, value: T) {
     storage.setItem(key, JSON.stringify(value));
 }
 
