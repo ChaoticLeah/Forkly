@@ -1,208 +1,54 @@
-# CookCLI
+# Forkly: A Revamped Frontend for CookCLI
 
-Forked
+Forkly is a frontend rewrite of the CookCLI, designed to enhance your self-hosted cooking experience. This project is mostly focused on the server part of it. Other parts should be fully working, but are not the focus of this fork.
 
-CookCLI provides a suite of tools to create shopping lists and maintain recipes. We've built it to be simple and useful for automating your cooking and shopping routine with existing UNIX command line and scripting tools. It can also function as a webserver for your recipes, making them browsable on any device with a web browser.
+## Features
 
-* [Example usage](#example-usage)  
-* [Installation](#installation)  
-* [Building from source](#building-from-source)  
-* [Contribution](#contribution)  
-* [License](#license)  
+Forkly includes all the original CookCLI web UI features and adds a variety of new tools to streamline your cooking experience:
 
-## Example usage
+- **Built-in Timer:** Click on any time mentioned in a recipe (e.g., "bake for 2 hours") to instantly set a timer.
+- **Measurement Conversion:** Convert measurements like "1 cup" into other units with a single click.
+- **Interactive Shopping List:** Mark off ingredients as you shop.
+- **PWA Support:** Install Forkly as a Progressive Web App (PWA) on your phone.
+- **Modern Design:** Enjoy a sleek and responsive user interface.
+- **Additional Quality of Life Features:**
+  - Keep your screen awake while viewing recipes (requires HTTPS).
+  - Customize settings for rounded conversions.
+  - View extra recipe stats, like the number of servings.
 
-Add sample recipes:
+### Planned Features
 
-```
-$ cook seed
-$ tree .
-.
-├── Baked Potato Soup.cook
-...
-├── Neapolitan Pizza.cook
-...
-├── README.md
-├── Root Vegetable Tray Bake.cook
-...
-└── config
-    └── aisle.conf
-
-3 directories, 15 files
-```
-
-Check "Neapolitan Pizza":
-```
-$ cook recipe read "Neapolitan Pizza.cook"
-Metadata:
-    servings: 6
-
-Ingredients:
-    chopped tomato                3 cans
-    dried oregano                 3 tbsp
-    fresh basil                   18 leaves
-    fresh yeast                   1.6 g
-    garlic                        3 gloves
-    mozzarella                    3 packs
-    parma ham                     3 packs
-    salt                          25 g
-    tipo zero flour               820 g
-    water                         530 ml
-
-Steps:
-     1. Make 6 pizza balls using tipo zero flour, water, salt and fresh yeast. Put in a fridge for 2 days.
-        [fresh yeast: 1.6 g; salt: 25 g; tipo zero flour: 820 g; water: 530 ml]
-     2. Set oven to max temperature and heat pizza stone for about 40 minutes.
-        [–]
-     3. Make some tomato sauce with chopped tomato and garlic and dried oregano. Put on a pan and leave for 15 minutes occasionally stirring.
-        [chopped tomato: 3 cans; dried oregano: 3 tbsp; garlic: 3 gloves]
-     4. Make pizzas putting some tomato sauce with spoon on top of flattened dough. Add fresh basil, parma ham and mozzarella.
-        [fresh basil: 18 leaves; mozzarella: 3 packs; parma ham: 3 packs]
-     5. Put in an oven for 4 minutes.
-        [–]
-
-```
-
-Create a shopping list:
-```
-$ cook shopping-list \
-> Neapolitan\ Pizza.cook \
-> Root\ Vegetable\ Tray\ Bake.cook
-BREADS AND BAKED GOODS
-    breadcrumbs                   150 g
-
-DRIED HERBS AND SPICES
-    dried oregano                 3 tbsp
-    dried sage                    1 tsp
-    pepper                        1 pinch
-    salt                          25 g, 2 pinches
-
-FRUIT AND VEG
-    beetroots                     300 g
-    carrots                       300 g
-    celeriac                      300 g
-    fresh basil                   18 leaves
-    garlic                        3 gloves
-    lemon                         1 item
-    onion                         1 large
-    red onion                     2 items
-    thyme                         2 springs
-
-MEAT AND SEAFOOD
-    parma ham                     3 packs
-
-MILK AND DAIRY
-    butter                        15 g
-    egg                           1 item
-    mozzarella                    3 packs
-
-OILS AND DRESSINGS
-    Dijon mustard                 1 tsp
-    Marmite                       1 tsp
-    cider                         150 ml
-    olive oil                     3 tbsp
-
-OTHER (add new items into aisle.conf)
-    tipo zero flour               820 g
-
-PACKAGED GOODS, PASTA AND SAUCES
-    vegetable stock               150 ml
-    water                         530 ml
-
-TINNED GOODS AND BAKING
-    cannellini beans              400 g
-    chopped tomato                3 cans
-    fresh yeast                   1.6 g
-    redcurrant jelly              1 tsp
-```
-
-Run a web-server:
-
-    $ cook server
-    Started server on http://127.0.0.1:9080, serving cook files from /Users/pochho/recipes.
-
-![server](https://user-images.githubusercontent.com/4168619/148116974-7010e265-5aa8-4990-a4b9-f85abe3eafb0.png)
-
-
-You can find full documentation at https://cooklang.org/cli/help/ or by running `help` command.
-
-```
-Usage: cook [OPTIONS] COMMAND
-
-Options:
-    -a, --aisle <aisle>             Specify an aisle.conf file to override shopping list default settings 
-    -u, --units <units>             Specify a units.conf file to override units default settings
-    -i, --inflection <inflection>   Specify an inflection.conf file to override default inflection settings
-    -h, --help                      Show help information.
-
-Commands:
-    recipe                  Manage recipes and recipe files
-    shopping-list           Create a shopping list
-    server                  Run a webserver to serve your recipes on the web
-    fetch                   Pull recipes from the community recipe repository
-    version                 Show the CookCLI version information
-    help                    Show the help text for a sub-command
-```
+- Sorting shopping lists by category (e.g., group all meats, fruits, etc.).
+- Scaling recipes to serve different numbers of people (experimental).
+- Web-based recipe addition (For now you can use [File Browser](https://github.com/filebrowser/filebrowser)).
+- Docker container for easy deployment.
 
 ## Installation
 
-Download latest release for your platform from the [releases page](https://github.com/cooklang/CookCLI/releases) and add the file to your operating system's PATH.
+### Build From Source
 
-On Linux (or [WSL](https://docs.microsoft.com/en-us/windows/wsl/about)), this is easy. Simply extract the binary into your binaries folder with `sudo unzip CookCLI_1.0.0_linux_amd64.zip -d /usr/local/bin/` (note: you may need to install the unzip package first). 
+1. Clone the repository:  
+   ```bash
+   git clone https://github.com/ChaoticLeah/Forkly.git
+   cd Forkly
+   ```
+2. Install frontend dependencies:
+   ```bash
+   cd ui
+   bun install
+   ```
+3. Build the frontend (If it fails delete the old build folder):
+   ```bash
+   bun --bun run build
+   ```
+4. Start the server:
+   ```bash
+   cd ..
+   cargo run -- --server
+   ```
+5. Access the server using the address provided in the terminal output.
+6. Add recipes: Place your recipes in the `seed/` directory or specify a custom directory when starting the server.
 
-On MacOS:
+## Why Rewrite CookCLI's Frontend?
 
-    brew tap cooklang/tap
-    brew install cooklang/tap/cook
-
-
-## Building from source
-
-1. Checkout code.
-2. Install Rust by following official [instructions](https://www.rust-lang.org/tools/install).
-3. Install Node.js by following official [instructions](https://nodejs.org/en/learn/getting-started/how-to-install-nodejs).
-4. Build UI server
-
-```
-cd ui && npm install && npm run build
-```
-5. Build CookCLI from a directory with the source code:
-
-```
-cargo build --release
-```
-4. Take binary from `target/release/cook`.
-
-## Contribution
-
-Please open issues for any ideas you may have to contribute to the project. See [Contribution guidelines](CONTRIBUTING.md) for details.
-
-## License
-
-MIT License
-
-Copyright (c) 2021-2023 Alexey Dubovskoy
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
-Some source files include a substantial portion of code from
-https://github.com/Zheoni/cooklang-chef.
-
-The original code is licensed under the MIT License, a copy of which
-is provided in these files in addition to our project's license.
+The original CookCLI frontend was functional but outdated. By leveraging modern tools like Svelte 5, Vite, TypeScript, and Tailwind CSS, Forkly offers improved performance. It also introduces new features that simplify recipe management and enhance the cooking experience.
