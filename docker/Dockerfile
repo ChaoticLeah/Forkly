@@ -14,7 +14,7 @@ RUN git clone https://github.com/ChaoticLeah/Forkly.git .
 
 # Install any JavaScript dependencies (if applicable)
 WORKDIR /usr/src/cookcli/ui
-RUN npm install && npm run build
+RUN npm i -f && npm run build
 
 # Build the project (both Rust and Node dependencies)
 WORKDIR /usr/src/cookcli/src
