@@ -10,7 +10,7 @@ RUN curl -fsSL https://deb.nodesource.com/setup_current.x | bash - \
 WORKDIR /usr/src/cookcli
 
 # Clone the cookcli repository
-RUN git clone https://github.com/cooklang/cookcli.git .
+RUN git clone https://github.com/ChaoticLeah/Forkly.git .
 
 # Install any JavaScript dependencies (if applicable)
 WORKDIR /usr/src/cookcli/ui
